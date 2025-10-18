@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://uaf7a2vg3tv3"]
+
+[ext_resource type="Script" uid="uid://ohsar8hdoyw7" path="res://scripts/spectogramdisplay.gd" id="1_5jepy"]
+[ext_resource type="Script" uid="uid://51nylf752e3u" path="res://scripts/anomaly_1.gd" id="2_jyda5"]
+
+[sub_resource type="Gradient" id="Gradient_4dvvg"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rnjyy"]
+gradient = SubResource("Gradient_4dvvg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnjyy"]
+
+[node name="SpectrogramScene" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(7.5585938, 1104)
+texture = SubResource("GradientTexture1D_rnjyy")
+centered = false
+
+[node name="SpectogramDisplay" type="Node2D" parent="."]
+script = ExtResource("1_5jepy")
+
+[node name="Anomaly_1" type="Area2D" parent="."]
+script = ExtResource("2_jyda5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anomaly_1"]
+shape = SubResource("RectangleShape2D_rnjyy")

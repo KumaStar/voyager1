@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://uaf7a2vg3tv3"]
+
+[ext_resource type="Script" uid="uid://bdoxfr6sl1fd1" path="res://scripts/spectogram.gd" id="1_3d2xs"]
+[ext_resource type="Texture2D" uid="uid://sye68xtsbkhc" path="res://assets/temp/SpaceSounds1Spectogram.png" id="1_jyda5"]
+[ext_resource type="Script" uid="uid://bmvvxdlgcp6un" path="res://scripts/sd.gd" id="2_atjpu"]
+[ext_resource type="Script" uid="uid://51nylf752e3u" path="res://scripts/anomaly_1.gd" id="2_jyda5"]
+[ext_resource type="AudioStream" uid="uid://b6krmqlpv6qhr" path="res://assets/temp/SpaceSound1.wav" id="4_atjpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnjyy"]
+
+[node name="SpectrogramScene" type="Node2D"]
+script = ExtResource("1_3d2xs")
+
+[node name="Sd" type="Sprite2D" parent="."]
+position = Vector2(4612, 616)
+scale = Vector2(2.4245312, 0.48274952)
+texture = ExtResource("1_jyda5")
+script = ExtResource("2_atjpu")
+
+[node name="Anomaly_1" type="Area2D" parent="."]
+script = ExtResource("2_jyda5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anomaly_1"]
+shape = SubResource("RectangleShape2D_rnjyy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 972.0
+offset_top = 234.0
+offset_right = 1286.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 23
+text = "wow this is a tv screen"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_atjpu")
+autoplay = true

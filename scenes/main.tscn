@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://rw2cudsfckue"]
+
+[ext_resource type="PackedScene" uid="uid://cu3hbqtuu1g46" path="res://scenes/mouse.tscn" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://o1tkb6ys2ffg" path="res://assets/temp/CRTLayout-removebg-preview.png" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c1rpw36ux848s" path="res://assets/temp/Starfields/Starfield_07-512x512.png" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://b1xp2u6856kf0" path="res://camera_2d.gd" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dfjnf82or5jc" path="res://assets/temp/p02764kc.jpg.webp" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cb8fd7so2hdbe" path="res://assets/temp/image.png" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://dxcdfrrw8pf3q" path="res://scripts/dekstop.gd" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://dl46chfhhlldk" path="res://assets/temp/Starfields/Starfield_08-512x512.png" id="6_85g3d"]
+[ext_resource type="Script" uid="uid://cfl257grkgd71" path="res://scripts/musicscreen.gd" id="6_choun"]
+
+[node name="main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CrtLayout" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2.8873875, 2.8826663)
+texture = ExtResource("1_tbgi4")
+centered = false
+
+[node name="bg" type="Sprite2D" parent="CanvasLayer"]
+z_index = -2
+position = Vector2(1137, 496.50003)
+scale = Vector2(1.4960938, 1.1386719)
+texture = ExtResource("2_tbgi4")
+
+[node name="mouse" parent="CanvasLayer" instance=ExtResource("1_jyhfs")]
+z_index = 2000
+
+[node name="Computer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="desktop" type="Control" parent="CanvasLayer/Computer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_tipki")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("4_tefeu")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 692.0
+offset_right = 929.0
+offset_bottom = 731.0
+
+[node name="musicscreen" type="Control" parent="CanvasLayer/Computer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_85g3d")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 692.0
+offset_right = 929.0
+offset_bottom = 731.0
+text = "HERERERERERERERere"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_tbgi4")
+
+[node name="P02764Kc_jpg" type="Sprite2D" parent="."]
+position = Vector2(1063.5, 633.5)
+scale = Vector2(5.1437507, 5.7296295)
+texture = ExtResource("4_jyhfs")
+
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/Button" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/musicscreen/Button" to="CanvasLayer/Computer/musicscreen" method="_on_button_pressed"]

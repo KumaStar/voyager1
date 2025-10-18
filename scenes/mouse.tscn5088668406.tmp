@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu3hbqtuu1g46"]
+
+[ext_resource type="Texture2D" uid="uid://c7hjo312ajbso" path="res://assets/temp/mouse.png" id="1_ouscy"]
+[ext_resource type="Texture2D" uid="uid://bx6qahcvdwuj2" path="res://assets/temp/sd.jpg" id="2_iog6k"]
+[ext_resource type="Script" uid="uid://h63gh7ofvuae" path="res://scripts/mouse.gd" id="2_xa71f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dexx5"]
+atlas = ExtResource("1_ouscy")
+region = Rect2(0, 0, 406, 470)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa71f"]
+atlas = ExtResource("2_iog6k")
+region = Rect2(600, 0, 200, 117)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbrf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dexx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa71f")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="mouse" type="AnimatedSprite2D"]
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_lbrf4")
+animation = &"1"
+centered = false
+script = ExtResource("2_xa71f")
