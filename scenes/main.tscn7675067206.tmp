@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://rw2cudsfckue"]
+
+[ext_resource type="PackedScene" uid="uid://cu3hbqtuu1g46" path="res://scenes/mouse.tscn" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://o1tkb6ys2ffg" path="res://assets/temp/CRTLayout-removebg-preview.png" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://b1xp2u6856kf0" path="res://camera_2d.gd" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dfjnf82or5jc" path="res://assets/temp/p02764kc.jpg.webp" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cb8fd7so2hdbe" path="res://assets/temp/image.png" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://dxcdfrrw8pf3q" path="res://scripts/dekstop.gd" id="4_tipki"]
+[ext_resource type="Script" uid="uid://cfl257grkgd71" path="res://scripts/musicscreen.gd" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://bp56gklic72gt" path="res://assets/Webpage.png" id="6_ya4ey"]
+[ext_resource type="Script" uid="uid://8f55inc7r6fo" path="res://scenes/tracks.gd" id="7_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://sye68xtsbkhc" path="res://assets/temp/SpaceSounds1Spectogram.png" id="7_ya4ey"]
+[ext_resource type="Script" uid="uid://dxk4mpovhs14e" path="res://scripts/navigation.gd" id="8_choun"]
+[ext_resource type="Texture2D" uid="uid://bx6qahcvdwuj2" path="res://assets/temp/sd.jpg" id="9_ya4ey"]
+
+[node name="main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CrtLayout" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2.8873875, 2.8826663)
+texture = ExtResource("1_tbgi4")
+centered = false
+
+[node name="mouse" parent="CanvasLayer" instance=ExtResource("1_jyhfs")]
+z_index = 2000
+
+[node name="Computer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="desktop" type="Control" parent="CanvasLayer/Computer"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_tipki")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("4_tefeu")
+expand_mode = 1
+
+[node name="nav" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 502.0
+offset_right = 1228.0
+offset_bottom = 541.0
+text = "nav"
+
+[node name="specto" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 501.0
+offset_right = 962.0
+offset_bottom = 540.0
+text = "spec"
+
+[node name="musicscreen" type="Control" parent="CanvasLayer/Computer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_ya4ey")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 0
+offset_left = 1301.0
+offset_top = 238.0
+offset_right = 1472.0
+offset_bottom = 295.0
+
+[node name="tracks" type="Control" parent="CanvasLayer/Computer/musicscreen"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 814.0
+offset_top = 370.0
+offset_right = 1251.0
+offset_bottom = 658.0
+script = ExtResource("7_eb6dy")
+
+[node name="music1" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/tracks"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 4.0
+offset_right = 2651.0
+offset_bottom = 546.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ya4ey")
+
+[node name="music2" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/tracks"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="music3" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/tracks"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="navigation" type="Control" parent="CanvasLayer/Computer"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("9_ya4ey")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 692.0
+offset_right = 929.0
+offset_bottom = 731.0
+text = "HERERERERERERERere"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("3_tbgi4")
+
+[node name="P02764Kc_jpg" type="Sprite2D" parent="."]
+position = Vector2(1063.5, 633.5)
+scale = Vector2(5.1437507, 5.7296295)
+texture = ExtResource("4_jyhfs")
+
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/nav" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/nav" to="CanvasLayer/Computer/desktop" method="_on_nav_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/specto" to="CanvasLayer/Computer/desktop" method="_on_specto_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/specto" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/musicscreen/backtodesktop" to="CanvasLayer/Computer/musicscreen" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/navigation/backtodesktop" to="CanvasLayer/Computer/navigation" method="_on_button_pressed"]

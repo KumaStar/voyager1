@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbed5oia2f0fn"]
+[gd_scene load_steps=16 format=3 uid="uid://cbed5oia2f0fn"]
 
-[ext_resource type="Texture2D" uid="uid://dw7h13fqcn3s5" path="res://assets/temp/Starfields/Starfield_01-512x512.png" id="1_vjb58"]
+[ext_resource type="Script" uid="uid://cf2m1aonxqra3" path="res://scripts/menu.gd" id="1_v86rl"]
+[ext_resource type="Texture2D" uid="uid://do44nkmjpbbvu" path="res://assets/background.png" id="1_vjb58"]
 [ext_resource type="Script" uid="uid://du4533215l2ao" path="res://scripts/mainmenu.gd" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://dyio4i4jcaru4" path="res://assets/Sprite-0003.svg" id="3_con2f"]
+[ext_resource type="FontFile" uid="uid://pb82tgpttcev" path="res://assets/temp/Ithaca-LVB75.ttf" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://cw3ailpterto1" path="res://assets/Ocean_01-512x512.png" id="5_g3eks"]
+[ext_resource type="Texture2D" uid="uid://d3obb4opgrsnm" path="res://assets/Volcanic_05-512x512.png" id="6_v86rl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3eks"]
 
@@ -11,6 +16,98 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6lef"]
 
+[sub_resource type="Animation" id="Animation_4ytvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("comet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1561, -46)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("comet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mhnvy"]
+resource_name = "comets"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("comet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666667, 0.96666664, 1.8, 2.6666667, 3.8666666, 4.5, 5.3, 5.8333335, 6.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1561, -46), Vector2(128, 1178), Vector2(1674, -39), Vector2(499, 1118), Vector2(1995, 109), Vector2(888.0001, 1191), Vector2(417, -29), Vector2(-47, 524), Vector2(1229, -64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("comet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.96666664, 1.8666667, 2.6666667, 3.8333333, 4.5666666, 5.266667, 5.8, 6.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_con2f"]
+resource_name = "comets_2"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("comet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.96666664, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1561, -32), Vector2(128, 1178), Vector2(1674, -170)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("comet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.96666664, 1.7333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3eks"]
+_data = {
+&"RESET": SubResource("Animation_4ytvr"),
+&"comets": SubResource("Animation_mhnvy"),
+&"comets_2": SubResource("Animation_con2f")
+}
+
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -18,6 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v86rl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -46,7 +144,8 @@ script = ExtResource("2_4ytvr")
 [node name="play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_g3eks")
 text = "PLAY"
 flat = true
@@ -59,7 +158,8 @@ theme_override_constants/margin_top = 10
 [node name="settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v86rl")
 text = "SETTINGS"
 flat = true
@@ -72,7 +172,8 @@ theme_override_constants/margin_top = 10
 [node name="credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_13sgg")
 text = "CREDITS"
 flat = true
@@ -85,10 +186,42 @@ theme_override_constants/margin_top = 10
 [node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 70
+theme_override_fonts/font = ExtResource("3_mhnvy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_i6lef")
 text = "EXIT"
 flat = true
+
+[node name="comet" type="Sprite2D" parent="."]
+position = Vector2(1561, -46)
+texture = ExtResource("3_con2f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g3eks")
+}
+autoplay = "comets"
+speed_scale = 1.13
+
+[node name="Ocean01512x512" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 0.7921569)
+position = Vector2(1384, 811)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_g3eks")
+
+[node name="Volcanic05512x512" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.65882355)
+position = Vector2(500, 282)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_v86rl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1799.0
+offset_top = 1049.0
+offset_right = 1923.0
+offset_bottom = 1079.0
+text = "devas studio "
 
 [connection signal="focus_entered" from="VBoxContainer/play" to="VBoxContainer" method="_on_play_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/play" to="VBoxContainer" method="_on_play_focus_exited"]
@@ -99,8 +232,8 @@ flat = true
 [connection signal="focus_exited" from="VBoxContainer/settings" to="VBoxContainer" method="_on_settings_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer/settings" to="VBoxContainer" method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/settings" to="VBoxContainer" method="_on_settings_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/settings" to="VBoxContainer" method="settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="VBoxContainer" method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="VBoxContainer" method="settings_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer/credits" to="VBoxContainer" method="_on_credits_mouse_entered"]

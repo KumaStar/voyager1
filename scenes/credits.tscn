@@ -19,17 +19,18 @@ color = Color(0.002466425, 3.008172e-08, 0.052639477, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1766.0
-offset_bottom = 833.0
+offset_right = 1888.9147
+offset_bottom = 899.0
 rotation = -0.0033639255
 theme_override_font_sizes/font_size = 58
 text = "CREDITS :)
-
+DEVAS STUDIO PRESENTS
 Lead Programmer - KumaStar
-Lead Artist - 2Gnet
-Programmer - Deepanshu
-Music Artist - PiffleSticks
-Artist - e
+Artist - 2Gnet
+3D / Music Artist - PiffleSticks
+Artist - Vicent Van
+Emotional Support - Deepanshu
 
-
-more credits - "
+other credits
+planet png - https://creativecommons.org/publicdomain/zero/1.0/
+txt format - link: https://www.fontspace.com/ithaca-font-f144503"

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpnc4bk7ephh"]
+
+[ext_resource type="Script" uid="uid://b7xqgacs3lm7q" path="res://scripts/cursor.gd" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://cjhy3nubwo08b" path="res://assets/sattelite.png" id="2_n5qf0"]
+[ext_resource type="Texture2D" uid="uid://cxm0xtgb8sfcd" path="res://assets/temp/realknob.png" id="2_ndevg"]
+
+[node name="cursor" type="Control"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 0
+offset_left = 796.4174
+offset_top = 271.0
+offset_right = 828.0
+offset_bottom = 301.0
+script = ExtResource("1_s0nli")
+
+[node name="Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_n5qf0")
+
+[node name="KnobX" type="TextureRect" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = -468.41754
+offset_top = 123.0
+offset_right = 731.58246
+offset_bottom = 1323.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(590, 555)
+texture = ExtResource("2_ndevg")
+
+[node name="KnobY" type="TextureRect" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = -650.8348
+offset_top = 122.0
+offset_right = 549.1652
+offset_bottom = 1322.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(590, 555)
+texture = ExtResource("2_ndevg")
+flip_h = true

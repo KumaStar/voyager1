@@ -1,0 +1,505 @@
+[gd_scene load_steps=21 format=3 uid="uid://rw2cudsfckue"]
+
+[ext_resource type="PackedScene" uid="uid://cu3hbqtuu1g46" path="res://scenes/mouse.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://jmu3f8qbjjg3" path="res://scenes/computer.gd" id="3_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://1blaudw3t2d" path="res://assets/desktop.png" id="4_a8y0u"]
+[ext_resource type="Script" uid="uid://dxcdfrrw8pf3q" path="res://scripts/dekstop.gd" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://j1c5htb6wtyd" path="res://assets/Cloud.png" id="5_jkv2x"]
+[ext_resource type="Script" uid="uid://cfl257grkgd71" path="res://scripts/musicscreen.gd" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://d3nd56jy5j55m" path="res://assets/icon.png" id="6_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://bp56gklic72gt" path="res://assets/Webpage.png" id="6_ya4ey"]
+[ext_resource type="Script" uid="uid://8f55inc7r6fo" path="res://scenes/tracks.gd" id="7_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://sye68xtsbkhc" path="res://assets/temp/SpaceSounds1Spectogram.png" id="7_ya4ey"]
+[ext_resource type="Script" uid="uid://dxk4mpovhs14e" path="res://scripts/navigation.gd" id="8_choun"]
+[ext_resource type="AudioStream" uid="uid://b6krmqlpv6qhr" path="res://assets/temp/SpaceSound1.wav" id="8_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://c3mh7ea8pwcpr" path="res://assets/map.png" id="10_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://d3obb4opgrsnm" path="res://assets/Volcanic_05-512x512.png" id="10_gqmmt"]
+[ext_resource type="FontFile" uid="uid://pb82tgpttcev" path="res://assets/temp/Ithaca-LVB75.ttf" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://cw3ailpterto1" path="res://assets/Ocean_01-512x512.png" id="11_yc10j"]
+[ext_resource type="PackedScene" uid="uid://dpnc4bk7ephh" path="res://scenes/cursor.tscn" id="12_dp3eg"]
+[ext_resource type="Script" uid="uid://djaq783pok1du" path="res://scripts/query.gd" id="15_jscy8"]
+[ext_resource type="Texture2D" uid="uid://cge5fpjme0lm4" path="res://assets/Ice_02-512x512.png" id="15_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://b0pc1ro2ob88v" path="res://assets/PreRenderedScreenLit.png" id="20_yc10j"]
+
+[node name="main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PreRenderedScreenLit" type="Sprite2D" parent="CanvasLayer"]
+z_index = 12
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_yc10j")
+centered = false
+
+[node name="mouse" parent="CanvasLayer" instance=ExtResource("1_jyhfs")]
+z_index = 2000
+
+[node name="Computer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.0007315, 1)
+script = ExtResource("3_jkv2x")
+
+[node name="musicscreen" type="Control" parent="CanvasLayer/Computer"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 218.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_ya4ey")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+layout_mode = 0
+offset_left = 1299.0498
+offset_top = 234.0
+offset_right = 1465.0535
+offset_bottom = 291.0
+flat = true
+
+[node name="TrackContainer" type="Control" parent="CanvasLayer/Computer/musicscreen"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 814.0
+offset_top = 370.0
+offset_right = 1251.0
+offset_bottom = 658.0
+script = ExtResource("7_eb6dy")
+
+[node name="track1" type="Control" parent="CanvasLayer/Computer/musicscreen/TrackContainer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Spectrogram" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track1"]
+layout_mode = 0
+offset_left = 0.40430632
+offset_top = -5.0
+offset_right = 2224.4043
+offset_bottom = 537.0
+texture = ExtResource("7_ya4ey")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track1"]
+stream = ExtResource("8_jbj1t")
+
+[node name="track2" type="Control" parent="CanvasLayer/Computer/musicscreen/TrackContainer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Spectrogram" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track2"]
+
+[node name="track3" type="Control" parent="CanvasLayer/Computer/musicscreen/TrackContainer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Spectrogram" type="TextureRect" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Computer/musicscreen/TrackContainer/track3"]
+
+[node name="BtnPLayPause" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+z_index = 4
+layout_mode = 0
+offset_left = 1219.1083
+offset_top = 889.0
+offset_right = 1304.0461
+offset_bottom = 964.0
+flat = true
+
+[node name="BtnNext" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+z_index = 4
+layout_mode = 0
+offset_left = 1313.0396
+offset_top = 889.0
+offset_right = 1398.9767
+offset_bottom = 961.0
+flat = true
+
+[node name="BtnPrev" type="Button" parent="CanvasLayer/Computer/musicscreen"]
+visible = false
+z_index = 4
+layout_mode = 0
+offset_left = 981.2822
+offset_top = 882.0
+offset_right = 1076.2128
+offset_bottom = 947.0
+text = "prev"
+
+[node name="navigation" type="Control" parent="CanvasLayer/Computer"]
+anchors_preset = 0
+offset_left = -2.9978073
+offset_top = -4.0
+offset_right = 37.002193
+offset_bottom = 36.0
+mouse_filter = 2
+script = ExtResource("8_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 203.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_ya4ey")
+expand_mode = 1
+
+[node name="map" type="TextureRect" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 790.4218
+offset_top = 278.0
+offset_right = 1470.9241
+offset_bottom = 746.0
+texture = ExtResource("10_dp3eg")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 1300.0491
+offset_top = 221.0
+offset_right = 1464.9285
+offset_bottom = 274.0
+flat = true
+
+[node name="tempfix" type="ColorRect" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 813.405
+offset_top = 228.0
+offset_right = 1007.2632
+offset_bottom = 268.0
+color = Color(0.41960785, 0.57254905, 0.9137255, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 858.37213
+offset_top = 235.0
+offset_right = 1003.2662
+offset_bottom = 266.0
+theme_override_fonts/font = ExtResource("10_muem4")
+theme_override_font_sizes/font_size = 45
+text = "NAVIGATION "
+
+[node name="cursor" parent="CanvasLayer/Computer/navigation" instance=ExtResource("12_dp3eg")]
+layout_mode = 0
+offset_left = 798.416
+offset_top = 278.0
+offset_right = 1465.9277
+offset_bottom = 754.0
+mouse_filter = 2
+
+[node name="Cursor" parent="CanvasLayer/Computer/navigation/cursor" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.047000002
+anchor_bottom = 0.068
+offset_right = 8.626947
+offset_bottom = 7.632
+
+[node name="KnobX" parent="CanvasLayer/Computer/navigation/cursor/Control" index="0"]
+offset_left = -536.60754
+offset_top = 110.99994
+offset_right = 377.48523
+offset_bottom = 1006.0009
+texture = null
+
+[node name="KnobY" parent="CanvasLayer/Computer/navigation/cursor/Control2" index="0"]
+offset_left = -456.27856
+offset_top = 117.0
+offset_right = 439.18335
+offset_bottom = 1032.0
+texture = null
+
+[node name="t1" type="Button" parent="CanvasLayer/Computer/navigation"]
+layout_mode = 0
+offset_left = 940.31213
+offset_top = 391.0
+offset_right = 1460.3123
+offset_bottom = 911.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("11_yc10j")
+
+[node name="t2" type="Button" parent="CanvasLayer/Computer/navigation"]
+visible = false
+layout_mode = 0
+offset_left = 1314.0388
+offset_top = 408.0
+offset_right = 1834.039
+offset_bottom = 928.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("10_gqmmt")
+
+[node name="t3" type="Button" parent="CanvasLayer/Computer/navigation"]
+visible = false
+layout_mode = 0
+offset_left = 1076.2128
+offset_top = 616.0
+offset_right = 1596.2129
+offset_bottom = 1136.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("15_pm3ni")
+
+[node name="guide" type="Control" parent="CanvasLayer/Computer"]
+visible = false
+anchors_preset = 0
+offset_left = -2.9978073
+offset_top = -4.0
+offset_right = 37.002193
+offset_bottom = 36.0
+script = ExtResource("8_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/guide"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 203.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_ya4ey")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/guide"]
+layout_mode = 0
+offset_left = 1304.0461
+offset_top = 221.0
+offset_right = 1464.9285
+offset_bottom = 274.0
+
+[node name="tempfix" type="ColorRect" parent="CanvasLayer/Computer/guide"]
+layout_mode = 0
+offset_left = 813.405
+offset_top = 228.0
+offset_right = 1007.2632
+offset_bottom = 268.0
+color = Color(0.41960785, 0.57254905, 0.9137255, 1)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Computer/guide"]
+layout_mode = 0
+offset_left = 869.3641
+offset_top = 227.0
+offset_right = 1049.364
+offset_bottom = 267.0
+theme_override_fonts/font = ExtResource("10_muem4")
+theme_override_font_sizes/font_size = 45
+text = "guide.txt"
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Computer/guide"]
+layout_mode = 0
+offset_left = 816.40283
+offset_top = 300.0
+offset_right = 1442.9446
+offset_bottom = 713.0
+text = "# PLEASE DONT CHANGE THIS OR YOU WILL LOSE THE GUIDE ON HOW TO USE 
+ THIS SPACECRAFT
+
+- - - Spectrogram - - - 
+watch out for goods 
+
+- - -Navigation  - - -
+yeah yeah yeah hell yeah no clues on waht to do"
+placeholder_text = "you changed it bozo"
+
+[node name="query" type="Control" parent="CanvasLayer/Computer"]
+visible = false
+anchors_preset = 0
+offset_left = -2.9978073
+offset_top = -4.0
+offset_right = 37.002193
+offset_bottom = 36.0
+script = ExtResource("15_jscy8")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Computer/query"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 790.0
+offset_top = 203.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("6_ya4ey")
+expand_mode = 1
+
+[node name="backtodesktop" type="Button" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 1304.0461
+offset_top = 221.0
+offset_right = 1464.9285
+offset_bottom = 274.0
+
+[node name="tempfix" type="ColorRect" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 813.405
+offset_top = 228.0
+offset_right = 1007.2632
+offset_bottom = 268.0
+color = Color(0.41960785, 0.57254905, 0.9137255, 1)
+
+[node name="Label2" type="Label" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 869.3641
+offset_top = 227.0
+offset_right = 1049.364
+offset_bottom = 267.0
+theme_override_fonts/font = ExtResource("10_muem4")
+theme_override_font_sizes/font_size = 45
+text = "afegasuega[eg[awuega"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 852.3765
+offset_top = 340.0
+offset_right = 1184.3765
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("10_muem4")
+theme_override_font_sizes/font_size = 45
+text = "are you sure?
+
+anomilies??????????"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 1008.2625
+offset_top = 724.0
+offset_right = 1443.2625
+offset_bottom = 764.0
+theme_override_fonts/font = ExtResource("10_muem4")
+theme_override_font_sizes/font_size = 24
+
+[node name="lvl1" type="Button" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 1466.927
+offset_top = 892.0
+offset_right = 1500.927
+offset_bottom = 923.0
+text = "yes"
+flat = true
+
+[node name="Button2" type="Button" parent="CanvasLayer/Computer/query"]
+layout_mode = 0
+offset_left = 1465.9277
+offset_top = 949.0
+offset_right = 1499.9277
+offset_bottom = 980.0
+text = "no"
+flat = true
+
+[node name="desktop" type="Control" parent="CanvasLayer/Computer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.0014758, 1)
+script = ExtResource("4_tipki")
+
+[node name="bg" type="TextureRect" parent="CanvasLayer/Computer/desktop"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 16.0
+anchor_bottom = 12.0
+offset_left = 788.2593
+offset_top = 64.0
+offset_right = 1179.9807
+offset_bottom = 266.0
+texture = ExtResource("4_a8y0u")
+expand_mode = 1
+
+[node name="clouds" type="TextureRect" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.31
+anchor_right = 16.225
+anchor_bottom = 12.445
+offset_left = 790.0
+offset_top = 226.0
+offset_right = 830.0
+offset_bottom = 266.0
+texture = ExtResource("5_jkv2x")
+expand_mode = 1
+
+[node name="nav" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 803.22614
+offset_top = 280.0
+offset_right = 909.22614
+offset_bottom = 378.0
+scale = Vector2(0.5, 0.502)
+icon = ExtResource("6_jbj1t")
+flat = true
+icon_alignment = 1
+
+[node name="exit" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 1342.0364
+offset_top = 704.0
+offset_right = 1585.4985
+offset_bottom = 782.0797
+scale = Vector2(0.5, 0.502)
+text = "exit"
+flat = true
+icon_alignment = 1
+
+[node name="guide" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 806.2196
+offset_top = 400.99997
+offset_right = 912.2196
+offset_bottom = 498.99997
+scale = Vector2(0.5, 0.502)
+icon = ExtResource("6_jbj1t")
+flat = true
+icon_alignment = 1
+
+[node name="specto" type="Button" parent="CanvasLayer/Computer/desktop"]
+layout_mode = 0
+offset_left = 804.224
+offset_top = 341.0
+offset_right = 910.224
+offset_bottom = 439.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("6_jbj1t")
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/Computer/musicscreen/backtodesktop" to="CanvasLayer/Computer/musicscreen" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/navigation/backtodesktop" to="CanvasLayer/Computer/navigation" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/navigation/t1" to="CanvasLayer/Computer/navigation" method="_on_t_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/guide/backtodesktop" to="CanvasLayer/Computer/guide" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/query/backtodesktop" to="CanvasLayer/Computer/query" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/query/lvl1" to="CanvasLayer/Computer/query" method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/nav" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/nav" to="CanvasLayer/Computer/desktop" method="_on_nav_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/exit" to="CanvasLayer/Computer/desktop" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/exit" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/exit" to="CanvasLayer/Computer/desktop" method="_on_nav_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/guide" to="CanvasLayer/Computer/desktop" method="_on_guide_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/specto" to="CanvasLayer/Computer/desktop" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Computer/desktop/specto" to="CanvasLayer/Computer/desktop" method="_on_specto_pressed"]
+
+[editable path="CanvasLayer/Computer/navigation/cursor"]
