@@ -19,20 +19,29 @@ download it here - https://kumastar3.itch.io/voyager-1
 CREDITS :)
 DEVAS STUDIO PRESENTS --
 
-Lead Programmer - KumaStar
-Artist - 2Gnet
-3D / Music Artist - PiffleSticks
-Artist - Vicent Van
-Emotional Support - Deepanshu
+Lead Programmer - KumaStar  
+ 
+Artist - 2Gnet   
 
-OTHER CREDITS ---
-game is made with godot engine 4.5.1
-planet png - https://creativecommons.org/publicdomain/zero/1.0/
-txt format - link: https://www.fontspace.com/ithaca-font-f144503"
+3D / Music Artist - PiffleSticks   
+
+Artist - Vicent Van   
+
+Emotional Support - Deepanshu  
+
+
+OTHER CREDITS ---  
+game is made with godot engine 4.5.1   
+
+planet png - https://creativecommons.org/publicdomain/zero/1.0/   
+
+txt format - link: https://www.fontspace.com/ithaca-font-f144503"   
 
 
 LINKS----
 
-download - https://kumastar3.itch.io/voyager-1 
-website - https://devasstudio.vercel.app/
-discord - https://discord.gg/EzBc3v8X (please join if you wanna be a part)
+download - https://kumastar3.itch.io/voyager-1     
+
+website - https://devasstudio.vercel.app/   
+
+discord - https://discord.gg/EzBc3v8X (please join if you wanna be a part)   
