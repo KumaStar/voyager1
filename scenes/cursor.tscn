@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpnc4bk7ephh"]
+[gd_scene load_steps=3 format=3 uid="uid://dpnc4bk7ephh"]
 
 [ext_resource type="Script" uid="uid://b7xqgacs3lm7q" path="res://scripts/cursor.gd" id="1_s0nli"]
 [ext_resource type="Texture2D" uid="uid://cjhy3nubwo08b" path="res://assets/sattelite.png" id="2_n5qf0"]
-[ext_resource type="Texture2D" uid="uid://cxm0xtgb8sfcd" path="res://assets/temp/realknob.png" id="2_ndevg"]
 
 [node name="cursor" type="Control"]
 z_index = 500
@@ -30,7 +29,6 @@ offset_right = 731.58246
 offset_bottom = 1323.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(590, 555)
-texture = ExtResource("2_ndevg")
 
 [node name="KnobY" type="TextureRect" parent="."]
 z_index = 5
@@ -41,5 +39,4 @@ offset_right = 549.1652
 offset_bottom = 1322.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(590, 555)
-texture = ExtResource("2_ndevg")
 flip_h = true

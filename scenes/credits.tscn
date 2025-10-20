@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c51r5lceegrw6"]
+[gd_scene load_steps=3 format=3 uid="uid://c51r5lceegrw6"]
+
+[ext_resource type="Script" uid="uid://e51s3gwdotan" path="res://scripts/credits.gd" id="1_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://km6kbmtaj8mu" path="res://assets/temp/The_Sounds_of_Earth_Record_Cover_-_GPN-2000-001978.jpg" id="2_0ctdu"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2ckv8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -19,8 +23,10 @@ color = Color(0.002466425, 3.008172e-08, 0.052639477, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1888.9147
-offset_bottom = 899.0
+offset_left = 53.0
+offset_top = 41.0
+offset_right = 1941.9147
+offset_bottom = 940.0
 rotation = -0.0033639255
 theme_override_font_sizes/font_size = 58
 text = "CREDITS :)
@@ -34,3 +40,26 @@ Emotional Support - Deepanshu
 other credits
 planet png - https://creativecommons.org/publicdomain/zero/1.0/
 txt format - link: https://www.fontspace.com/ithaca-font-f144503"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1239.0
+offset_top = 13.0
+offset_right = 3127.9146
+offset_bottom = 912.0
+rotation = -0.0033639255
+theme_override_font_sizes/font_size = 58
+text = "click to go back"
+
+[node name="TheSoundsOfEarthRecordCoverGpn2000001978" type="Sprite2D" parent="."]
+position = Vector2(1470, 373)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0ctdu")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1970.0
+offset_bottom = 1072.0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
